@@ -1,0 +1,36 @@
+import { Meta } from "@storybook/blocks"
+
+import { FigmaEmbed } from "./FigmaEmbed"
+import { FIGMA_NODES } from "./figma"
+
+<Meta title="Introduction" />
+
+# NFS Designsystem
+
+Storybook demo for the **NFS / NSF** design system, built with **Vite + React + TypeScript + Tailwind + shadcn/ui**.
+
+Components in this pass are limited to what appears in the initial Figma sketches:
+
+- Button
+- Card
+- Breadcrumb
+- Separator
+- Item
+
+Pro Blocks are intentionally deferred — see the empty **Blocks** sidebar section.
+
+## Figma source
+
+File: [NFS-Designsystem](https://www.figma.com/design/fjWU2xZPddN2Sv8amBe6q5/NFS-Designsystem?node-id=27009-64864)
+
+<FigmaEmbed
+  nodeId={FIGMA_NODES.designCanvas}
+  title="Design canvas"
+  height={520}
+/>
+
+## Tooling
+
+- **a11y**: `@storybook/addon-a11y` (Accessibility panel + axe checks)
+- **Visual tests**: `@chromatic-com/storybook` — link a Chromatic project (see `chromatic.config.json` + README)
+- **Figma in docs**: reusable `FigmaEmbed` block (`src/stories/FigmaEmbed.tsx`) used on each component’s Figma reference story
