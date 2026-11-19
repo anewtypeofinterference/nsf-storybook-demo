@@ -21,7 +21,10 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   async viteFinal(config) {
+    // GitHub project Pages serves under /<repo>/ — set STORYBOOK_BASE in CI.
+    const base = process.env.STORYBOOK_BASE || "/"
     return mergeConfig(config, {
+      base,
       resolve: {
         alias: {
           "@": path.resolve(dirname, "../src"),

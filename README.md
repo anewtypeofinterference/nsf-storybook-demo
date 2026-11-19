@@ -4,6 +4,18 @@ Storybook + shadcn/ui design-system demo driven by the [NFS-Designsystem](https:
 
 Stack: **Vite · React · TypeScript · Tailwind CSS v4 · shadcn/ui (New York) · Storybook 8**.
 
+## Live Storybook (GitHub Pages)
+
+Published build: **https://anewtypeofinterference.github.io/nsf-storybook-demo/**
+
+CI (`.github/workflows/deploy-storybook.yml`) runs `npm run build-storybook` with `STORYBOOK_BASE=/nsf-storybook-demo/` and deploys `storybook-static/` via `actions/deploy-pages`. Do not commit `storybook-static/` (already gitignored).
+
+**One-time repo setup** (Settings → Pages):
+
+1. Set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+2. On the first workflow run, approve the `github-pages` environment if GitHub prompts for it.
+3. The workflow needs `pages: write` and `id-token: write` (declared in the workflow file).
+
 ## Install
 
 ```bash
