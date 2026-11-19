@@ -2,8 +2,9 @@
 
 import { useMemo } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import { CircleAlert } from "lucide-react"
 
+import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 
@@ -54,8 +55,12 @@ function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * Field layout from NFS-Designsystem Figma:
+ * vertical gap-2; invalid turns label (+ Field) text destructive `#dc2626`.
+ */
 const fieldVariants = cva(
-  "group/field flex w-full gap-3 data-[invalid=true]:text-destructive",
+  "group/field flex w-full gap-2 data-[invalid=true]:text-destructive",
   {
     variants: {
       orientation: {
@@ -226,10 +231,15 @@ function FieldError({
     <div
       role="alert"
       data-slot="field-error"
-      className={cn("text-sm font-normal text-destructive", className)}
+      className={cn(
+        /* Figma Error-message: icon 24 + text-sm destructive, gap-2, py-1 */
+        "flex items-center gap-2 py-1 text-sm font-normal leading-5 text-destructive",
+        className
+      )}
       {...props}
     >
-      {content}
+      <CircleAlert className="size-6 shrink-0" aria-hidden />
+      <div className="min-w-0">{content}</div>
     </div>
   )
 }

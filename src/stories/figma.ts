@@ -26,6 +26,7 @@ export const FIGMA_NODES = {
   dialogUnsaved: "27048:142068",
   tabs: "27048:135558",
   field: "27048:135564",
+  fieldError: "27056:148056",
   select: "27048:138194",
   dropdownMenu: "27048:138394",
   sonner: "27048:143219",

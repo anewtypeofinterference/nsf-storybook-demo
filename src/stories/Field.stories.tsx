@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { MapPin } from "lucide-react"
 
 import {
   Field,
@@ -12,6 +13,11 @@ import {
   FieldSet,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group"
 import {
   Select,
   SelectContent,
@@ -37,24 +43,25 @@ Combine labels, controls, and help text to compose accessible form fields and gr
 
 **Usage:**
 \`\`\`tsx
-import { Field, FieldLabel } from "@/components/ui/field"
+import { Field, FieldLabel, FieldError } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 
-<Field>
-  <FieldLabel htmlFor="name">Fornavn</FieldLabel>
-  <Input id="name" placeholder="Ditt fornavn" />
+<Field data-invalid>
+  <FieldLabel htmlFor="adresse">Adresse</FieldLabel>
+  <Input id="adresse" aria-invalid defaultValue="Sykeh" />
+  <FieldError>Du må velge et alternativ fra listen.</FieldError>
 </Field>
 \`\`\`
 
 **API:** \`Field\` (\`orientation\`: vertical | horizontal | responsive), \`FieldLabel\`, \`FieldDescription\`, \`FieldError\`, \`FieldGroup\`, \`FieldSet\`, \`FieldLegend\`, \`FieldSeparator\`, \`FieldContent\`, \`FieldTitle\`.
 
-Figma sketch: vertical Field with label + Input (h-8, rounded-lg).
+**Validation:** set \`data-invalid\` on \`Field\` and \`aria-invalid\` on the control. \`FieldError\` renders a destructive message with a leading alert icon (Figma Error-message on iPhone 16-13).
         `.trim(),
       },
       page: createFigmaDocsPage({
-        nodeId: FIGMA_NODES.field,
-        title: "Field — Fornavn",
-        height: 220,
+        nodeId: FIGMA_NODES.fieldError,
+        title: "Field — invalid Adresse + error message",
+        height: 260,
       }),
     },
   },
@@ -92,7 +99,40 @@ export const WithDescription: Story = {
   ),
 }
 
+/**
+ * iPhone 16-13 — invalid Adresse with InputGroup + MapPin + error message.
+ * Node `27056:148056` (Data Invalid=True).
+ */
 export const Invalid: Story = {
+  name: "Invalid with message (sketch)",
+  render: () => (
+    <Field className="w-[313px]" data-invalid>
+      <FieldLabel htmlFor="adresse">Adresse</FieldLabel>
+      <InputGroup>
+        <InputGroupAddon>
+          <MapPin />
+        </InputGroupAddon>
+        <InputGroupInput
+          id="adresse"
+          aria-invalid
+          defaultValue="Sykeh"
+        />
+      </InputGroup>
+      <FieldError>Du må velge et alternativ fra listen.</FieldError>
+    </Field>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Matches Field node `27056:148056`: destructive label + invalid InputGroup ring, CircleAlert error row.",
+      },
+    },
+  },
+}
+
+export const InvalidPlainInput: Story = {
+  name: "Invalid (plain Input)",
   render: () => (
     <Field className="w-[313px]" data-invalid>
       <FieldLabel htmlFor="email">E-post</FieldLabel>

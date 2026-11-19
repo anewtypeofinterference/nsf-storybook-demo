@@ -57,7 +57,7 @@
   --muted-foreground: #737373;
   --accent: #f5f5f5;
   --accent-foreground: #171717;
-  --destructive: #ef4444;
+  --destructive: #dc2626; /* Figma base/destructive */
   --destructive-foreground: #fafafa;
   --border: #e5e5e5;
   --input: #e5e5e5;
