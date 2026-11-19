@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { ChevronDown } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { FigmaEmbed } from "./FigmaEmbed"
+import { createFigmaDocsPage } from "./FigmaDocsPage"
 import { FIGMA_NODES } from "./figma"
 
 const meta = {
@@ -16,6 +16,11 @@ const meta = {
         component:
           "shadcn Button customized from NFS-Designsystem Figma (primary `#292524`, XL CTA, ghost icon-sm).",
       },
+      page: createFigmaDocsPage({
+        nodeId: FIGMA_NODES.buttonXl,
+        title: "Button XL — Bli medlem",
+        height: 280,
+      }),
     },
   },
   argTypes: {
@@ -72,25 +77,5 @@ export const GhostIconSm: Story = {
         story: "Matches mobile icon button node `27023:117215`.",
       },
     },
-  },
-}
-
-export const FigmaReference: Story = {
-  name: "Figma reference",
-  render: () => (
-    <div style={{ width: "min(720px, 90vw)" }}>
-      <FigmaEmbed
-        nodeId={FIGMA_NODES.buttonXl}
-        title="Button XL — Bli medlem"
-        height={280}
-      />
-      <div style={{ display: "flex", justifyContent: "center", padding: 24 }}>
-        <Button size="xl">Bli medlem</Button>
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: "padded",
-    chromatic: { disableSnapshot: true },
   },
 }

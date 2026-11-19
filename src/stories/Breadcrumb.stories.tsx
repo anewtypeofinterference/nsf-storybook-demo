@@ -8,7 +8,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { FigmaEmbed } from "./FigmaEmbed"
+import { createFigmaDocsPage } from "./FigmaDocsPage"
 import { FIGMA_NODES } from "./figma"
 
 const meta = {
@@ -22,6 +22,11 @@ const meta = {
         component:
           "shadcn Breadcrumb matching the mobile sketch: muted ancestor link, ChevronRight separator, current page in foreground.",
       },
+      page: createFigmaDocsPage({
+        nodeId: FIGMA_NODES.breadcrumb,
+        title: "Breadcrumb — Forside / Bytte eller skaffe jobb",
+        height: 220,
+      }),
     },
   },
 } satisfies Meta<typeof Breadcrumb>
@@ -43,34 +48,4 @@ export const Default: Story = {
       </BreadcrumbList>
     </Breadcrumb>
   ),
-}
-
-export const FigmaReference: Story = {
-  name: "Figma reference",
-  render: () => (
-    <div style={{ width: "min(720px, 90vw)" }}>
-      <FigmaEmbed
-        nodeId={FIGMA_NODES.breadcrumb}
-        title="Breadcrumb — Forside / Bytte eller skaffe jobb"
-        height={220}
-      />
-      <div style={{ display: "flex", justifyContent: "center", padding: 24 }}>
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Forside</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Bytte eller skaffe jobb</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: "padded",
-    chromatic: { disableSnapshot: true },
-  },
 }

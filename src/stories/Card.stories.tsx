@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import cardHero from "@/assets/card-hero.png"
-import { FigmaEmbed } from "./FigmaEmbed"
+import { createFigmaDocsPage } from "./FigmaDocsPage"
 import { FIGMA_NODES } from "./figma"
 
 const meta = {
@@ -24,6 +24,11 @@ const meta = {
         component:
           "shadcn Card with Figma customizations: rounded-xl, shadow-xs, compact header, muted footer with full-width primary button. Uses AspectRatio for the media band.",
       },
+      page: createFigmaDocsPage({
+        nodeId: FIGMA_NODES.card,
+        title: "Card — Design systems meetup",
+        height: 480,
+      }),
     },
   },
 } satisfies Meta<typeof Card>
@@ -59,24 +64,4 @@ function EventCard() {
 export const Event: Story = {
   name: "Event (sketch)",
   render: () => <EventCard />,
-}
-
-export const FigmaReference: Story = {
-  name: "Figma reference",
-  render: () => (
-    <div style={{ width: "min(720px, 90vw)" }}>
-      <FigmaEmbed
-        nodeId={FIGMA_NODES.card}
-        title="Card — Design systems meetup"
-        height={480}
-      />
-      <div style={{ display: "flex", justifyContent: "center", padding: 24 }}>
-        <EventCard />
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: "padded",
-    chromatic: { disableSnapshot: true },
-  },
 }
