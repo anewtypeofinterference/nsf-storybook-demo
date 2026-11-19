@@ -31,15 +31,22 @@ npm install
 | `npm run build-storybook` | Static Storybook build → `storybook-static/` |
 | `npm run chromatic` | Upload build to Chromatic (needs `CHROMATIC_PROJECT_TOKEN`) |
 
-## Components (this pass)
+## Components
 
-Only components present in the initial sketches, with Figma customizations:
+Only shadcn components that appear in the Figma Design canvas (full APIs + sketch customizations):
 
 - **Button** — primary `#292524`, XL CTA (`h-14` / `text-2xl`), ghost `icon-sm`
 - **Card** — `rounded-xl`, shadow-xs, media via AspectRatio, muted footer + full-width button
 - **Breadcrumb** — muted link + ChevronRight + current page
 - **Separator** — horizontal/vertical border rule
-- **Item** — muted + border + `rounded-lg`, image media, trailing action
+- **Item** — muted + border + `rounded-lg`, image / icon media
+- **Dialog** — rounded-xl, muted footer; confirm-info + unsaved-changes sketches
+- **Tabs** — line variant for profile nav
+- **Field** / **Input** / **Label** — vertical labeled inputs (e.g. Fornavn)
+- **Select** — h-8 rounded-lg; multi-line workplace options
+- **Dropdown Menu** — workplace list menu used in open Select sketches
+- **Sonner** — success toast “Dine endringer ble lagret”
+- **Input Group** — Field control + addon API (textarea only as group dependency)
 
 **Blocks** sidebar section is reserved for Pro Blocks later (empty placeholder MDX).
 
@@ -61,9 +68,10 @@ Official Storybook Visual Tests addon (Chromatic).
 ### Figma viewer in docs
 
 Reusable block: `src/stories/FigmaEmbed.tsx`  
+Docs page helper: `src/stories/FigmaDocsPage.tsx` (`createFigmaDocsPage`)  
 Helpers: `src/stories/figma.ts`
 
-Each component’s **Docs** page embeds the sketch frame (via `createFigmaDocsPage` + `FigmaEmbed`) above the interactive stories. Introduction also embeds the Design canvas.
+Each component’s **Docs** page embeds the sketch frame (not a separate sidebar story). Introduction also embeds the Design canvas.
 
 ## Tokens (from Figma)
 

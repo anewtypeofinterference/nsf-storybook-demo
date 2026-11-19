@@ -13,7 +13,7 @@ export function figmaEmbedUrl(nodeId: string) {
   )}`
 }
 
-/** Sketch node ids used by this Storybook pass. */
+/** Sketch node ids used by this Storybook. */
 export const FIGMA_NODES = {
   designCanvas: "27009:64864",
   buttonXl: "27013:105525",
@@ -22,4 +22,12 @@ export const FIGMA_NODES = {
   item: "27013:105517",
   breadcrumb: "27013:113812",
   separator: "27013:114187",
+  dialogConfirmInfo: "27026:119578",
+  dialogUnsaved: "27048:142068",
+  tabs: "27048:135558",
+  field: "27048:135564",
+  select: "27048:138194",
+  dropdownMenu: "27048:138394",
+  sonner: "27048:143219",
+  inputGroupHidden: "27048:135557",
 } as const

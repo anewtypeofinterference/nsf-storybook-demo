@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Pencil } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { createFigmaDocsPage } from "./FigmaDocsPage"
@@ -13,8 +13,20 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "shadcn Button customized from NFS-Designsystem Figma (primary `#292524`, XL CTA, ghost icon-sm).",
+        component: `
+Displays a button or a component that looks like a button.
+
+**Install:** \`npx shadcn@latest add button\`
+
+**Usage:**
+\`\`\`tsx
+import { Button } from "@/components/ui/button"
+
+<Button variant="outline">Button</Button>
+\`\`\`
+
+Customized from NFS-Designsystem Figma: primary \`#292524\`, XL CTA, ghost icon-sm, link “Rediger” actions in dialogs.
+        `.trim(),
       },
       page: createFigmaDocsPage({
         nodeId: FIGMA_NODES.buttonXl,
@@ -32,6 +44,7 @@ const meta = {
       control: "select",
       options: ["default", "sm", "lg", "xl", "icon", "icon-sm"],
     },
+    disabled: { control: "boolean" },
   },
 } satisfies Meta<typeof Button>
 
@@ -43,6 +56,41 @@ export const Default: Story = {
     children: "View Event",
     size: "default",
   },
+}
+
+export const Secondary: Story = {
+  args: { children: "Secondary", variant: "secondary" },
+}
+
+export const Outline: Story = {
+  args: { children: "Forkast endringer", variant: "outline" },
+}
+
+export const Ghost: Story = {
+  args: { children: "Ghost", variant: "ghost" },
+}
+
+export const Link: Story = {
+  args: {
+    children: (
+      <>
+        Rediger <Pencil />
+      </>
+    ),
+    variant: "link",
+  },
+}
+
+export const Destructive: Story = {
+  args: { children: "Delete", variant: "destructive" },
+}
+
+export const Small: Story = {
+  args: { children: "Small", size: "sm" },
+}
+
+export const Large: Story = {
+  args: { children: "Large", size: "lg" },
 }
 
 /** Homepage CTA — Figma XL / Default / Default ("Bli medlem"). */
@@ -62,6 +110,14 @@ export const XlPrimary: Story = {
   },
 }
 
+export const Icon: Story = {
+  args: {
+    size: "icon",
+    "aria-label": "More",
+    children: <ChevronDown />,
+  },
+}
+
 /** Mobile ghost icon button — Figma Ghost / icon-sm. */
 export const GhostIconSm: Story = {
   name: "Ghost / icon-sm",
@@ -78,4 +134,8 @@ export const GhostIconSm: Story = {
       },
     },
   },
+}
+
+export const Disabled: Story = {
+  args: { children: "Disabled", disabled: true },
 }

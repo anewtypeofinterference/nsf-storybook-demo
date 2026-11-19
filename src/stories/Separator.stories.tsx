@@ -12,8 +12,18 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "shadcn Separator as used in mobile sketches — horizontal 1px border divider.",
+        component: `
+Visually or semantically separates content.
+
+**Install:** \`npx shadcn@latest add separator\`
+
+**Usage:**
+\`\`\`tsx
+import { Separator } from "@/components/ui/separator"
+\`\`\`
+
+Used in mobile sketches as a horizontal 1px border divider between sections.
+        `.trim(),
       },
       page: createFigmaDocsPage({
         nodeId: FIGMA_NODES.separator,

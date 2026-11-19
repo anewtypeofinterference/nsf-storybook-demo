@@ -9,15 +9,12 @@ import { FIGMA_NODES } from "./figma"
 
 Storybook demo for the **NFS / NSF** design system, built with **Vite + React + TypeScript + Tailwind + shadcn/ui**.
 
-Components in this pass are limited to what appears in the initial Figma sketches:
+Components are limited to shadcn instances that appear in the Figma Design canvas:
 
-- Button
-- Card
-- Breadcrumb
-- Separator
-- Item
+- Button, Card, Breadcrumb, Separator, Item
+- Dialog, Tabs, Field, Input, Label, Select, Dropdown Menu, Sonner, Input Group
 
-Pro Blocks are intentionally deferred — see the empty **Blocks** sidebar section.
+Pro Blocks stay deferred — see the empty **Blocks** sidebar section.
 
 ## Figma source
 
@@ -33,4 +30,4 @@ File: [NFS-Designsystem](https://www.figma.com/design/fjWU2xZPddN2Sv8amBe6q5/NFS
 
 - **a11y**: `@storybook/addon-a11y` (Accessibility panel + axe checks)
 - **Visual tests**: `@chromatic-com/storybook` — link a Chromatic project (see `chromatic.config.json` + README)
-- **Figma in docs**: reusable `FigmaEmbed` block (`src/stories/FigmaEmbed.tsx`) on each component’s Docs page (via `createFigmaDocsPage`)
+- **Figma in docs**: `createFigmaDocsPage` embeds frames on each component’s Docs page (not as separate sidebar stories)
