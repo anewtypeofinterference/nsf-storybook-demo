@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Separator } from "@/components/ui/separator"
-import { FigmaEmbed } from "./FigmaEmbed"
+import { createFigmaDocsPage } from "./FigmaDocsPage"
 import { FIGMA_NODES } from "./figma"
 
 const meta = {
@@ -15,6 +15,11 @@ const meta = {
         component:
           "shadcn Separator as used in mobile sketches — horizontal 1px border divider.",
       },
+      page: createFigmaDocsPage({
+        nodeId: FIGMA_NODES.separator,
+        title: "Separator — horizontal",
+        height: 180,
+      }),
     },
   },
 } satisfies Meta<typeof Separator>
@@ -45,24 +50,4 @@ export const Vertical: Story = {
       <div>Source</div>
     </div>
   ),
-}
-
-export const FigmaReference: Story = {
-  name: "Figma reference",
-  render: () => (
-    <div style={{ width: "min(720px, 90vw)" }}>
-      <FigmaEmbed
-        nodeId={FIGMA_NODES.separator}
-        title="Separator — horizontal"
-        height={180}
-      />
-      <div style={{ padding: 24 }}>
-        <Separator />
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: "padded",
-    chromatic: { disableSnapshot: true },
-  },
 }

@@ -63,7 +63,7 @@ Official Storybook Visual Tests addon (Chromatic).
 Reusable block: `src/stories/FigmaEmbed.tsx`  
 Helpers: `src/stories/figma.ts`
 
-Each component has a **Figma reference** story that embeds the sketch frame (URL + node id) beside the live component. Introduction also embeds the Design canvas.
+Each component’s **Docs** page embeds the sketch frame (via `createFigmaDocsPage` + `FigmaEmbed`) above the interactive stories. Introduction also embeds the Design canvas.
 
 ## Tokens (from Figma)
 

@@ -11,7 +11,7 @@ import {
   ItemTitle,
 } from "@/components/ui/item"
 import itemThumb from "@/assets/item-thumb.png"
-import { FigmaEmbed } from "./FigmaEmbed"
+import { createFigmaDocsPage } from "./FigmaDocsPage"
 import { FIGMA_NODES } from "./figma"
 
 const meta = {
@@ -25,6 +25,11 @@ const meta = {
         component:
           "shadcn Item as used in the sketches: muted background, border, rounded-lg, image media, title + description, trailing arrow action.",
       },
+      page: createFigmaDocsPage({
+        nodeId: FIGMA_NODES.item,
+        title: "Item — Bytte eller skaffe jobb",
+        height: 280,
+      }),
     },
   },
 } satisfies Meta<typeof Item>
@@ -71,24 +76,4 @@ export const Group: Story = {
       <NavItem title="Utdanning og kompetanse" />
     </ItemGroup>
   ),
-}
-
-export const FigmaReference: Story = {
-  name: "Figma reference",
-  render: () => (
-    <div style={{ width: "min(720px, 90vw)" }}>
-      <FigmaEmbed
-        nodeId={FIGMA_NODES.item}
-        title="Item — Bytte eller skaffe jobb"
-        height={280}
-      />
-      <div style={{ display: "flex", justifyContent: "center", padding: 24 }}>
-        <NavItem />
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: "padded",
-    chromatic: { disableSnapshot: true },
-  },
 }
