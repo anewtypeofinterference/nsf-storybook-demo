@@ -1,0 +1,7 @@
+{
+  "onlyChanged": true,
+  "zip": true,
+  "buildScriptName": "build-storybook",
+  "storybookBaseDir": ".",
+  "exitZeroOnChanges": true
+}
